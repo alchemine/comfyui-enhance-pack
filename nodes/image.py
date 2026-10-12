@@ -1,4 +1,4 @@
-"""Nodes in FilterPack/Image."""
+"""Nodes in EnhancePack/Image."""
 
 import torch
 import torch.nn.functional as F
@@ -238,7 +238,7 @@ class AdjustImage(BaseImage):
     RETURN_TYPES = ("IMAGE",)
     RETURN_NAMES = ("image",)
     FUNCTION = "execute"
-    CATEGORY = "FilterPack/Image"
+    CATEGORY = "EnhancePack/Image"
 
     @classmethod
     def execute(

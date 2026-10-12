@@ -1,18 +1,18 @@
 [project]
-name = "comfyui-filter-pack"
-description = """Image filters: colour correction, sharpen, denoise and resize in one Adjust Image node"""
+name = "comfyui-enhance-pack"
+description = """Image enhance nodes: colour correction, sharpen, denoise and resize in one Adjust Image node"""
 
 version = "1.0.0"
 license = { file = "LICENSE" }
 requires-python = ">=3.12"
 
 [project.urls]
-Repository = "https://github.com/alchemine/comfyui-filter-pack"
-"Bug Tracker" = "https://github.com/alchemine/comfyui-filter-pack/issues"
+Repository = "https://github.com/alchemine/comfyui-enhance-pack"
+"Bug Tracker" = "https://github.com/alchemine/comfyui-enhance-pack/issues"
 
 [tool.comfy]
 PublisherId = "alchemine"
-DisplayName = "ComfyUI-Filter-Pack"
+DisplayName = "ComfyUI-Enhance-Pack"
 Icon = ""
 
 [tool.ruff]
