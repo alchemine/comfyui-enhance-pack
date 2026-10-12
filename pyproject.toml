@@ -1,6 +1,8 @@
 [project]
 name = "comfyui-enhance-pack"
-description = """Image enhance nodes: Adjust Image (colour correction, sharpen, denoise, resize) and Despeckle Image (remove stray bright dots)"""
+description = """Image enhance pack.
+- Adjust Image(color correction, sharpen, denoise, resize), Despeckle Image
+- [a/Workflow](https://github.com/alchemine/comfyui-enhance-pack/blob/main/workflows/comfyui-enhance-pack-workflow.png)"""
 
 version = "1.0.0"
 license = { file = "LICENSE" }

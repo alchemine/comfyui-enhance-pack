@@ -5,6 +5,12 @@
 Image enhance nodes: colour correction, sharpening, denoising, despeckling and resizing as torch ops on the GPU ComfyUI
 computes on.
 
+## Example
+
+![Image](workflows/comfyui-enhance-pack-image.png)
+
+![Workflow](workflows/comfyui-enhance-pack-workflow.png)
+
 ## Usage
 
 ### Adjust Image
