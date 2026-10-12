@@ -12,8 +12,8 @@ def test_node_id_is_registered(mappings):
     assert "AdjustImage" in mappings
 
 
-def test_node_is_in_filter_pack_category(mappings):
-    assert mappings["AdjustImage"].CATEGORY == "FilterPack/Image"
+def test_node_is_in_enhance_pack_category(mappings):
+    assert mappings["AdjustImage"].CATEGORY == "EnhancePack/Image"
 
 
 def test_defaults_pass_the_image_through(pack, image):

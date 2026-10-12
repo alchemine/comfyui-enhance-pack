@@ -1,8 +1,8 @@
-# ComfyUI-Filter-Pack
+# ComfyUI-Enhance-Pack
 
 [English](README.md) | [한국어](README_ko.md)
 
-이미지 필터 노드 모음입니다. 색 보정, 샤픈, 디노이즈, 리사이즈를 이미지가 있는 디바이스의 torch 연산으로 처리합니다.
+이미지 보정 노드 모음입니다. 색 보정, 샤픈, 디노이즈, 리사이즈를 이미지가 있는 디바이스의 torch 연산으로 처리합니다.
 
 ## 사용법
 
@@ -29,16 +29,16 @@ local contrast → resize. 디노이즈가 샤픈보다 먼저라, 제거한 노
 
 ## 설치 방법
 
-ComfyUI Manager에서 **ComfyUI-Filter-Pack**을 검색하거나, 아래처럼 설치합니다.
+ComfyUI Manager에서 **ComfyUI-Enhance-Pack**을 검색하거나, 아래처럼 설치합니다.
 
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/alchemine/comfyui-filter-pack
+git clone https://github.com/alchemine/comfyui-enhance-pack
 ```
 
 ## 노드
 
-`FilterPack/Image`
+`EnhancePack/Image`
 
 | 노드 | 설명 |
 |------|------|

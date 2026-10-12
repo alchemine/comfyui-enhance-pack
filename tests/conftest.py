@@ -12,7 +12,7 @@ import pytest
 import torch.nn.functional as F
 
 PACK_DIR = Path(__file__).resolve().parent.parent
-PACK_NAME = "filter_pack"
+PACK_NAME = "enhance_pack"
 
 
 def common_upscale(samples, width, height, upscale_method, crop):

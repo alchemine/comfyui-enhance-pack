@@ -1,8 +1,8 @@
-# ComfyUI-Filter-Pack
+# ComfyUI-Enhance-Pack
 
 [English](README.md) | [한국어](README_ko.md)
 
-Image filter nodes: colour correction, sharpening, denoising and resizing as torch ops on the image's own device.
+Image enhance nodes: colour correction, sharpening, denoising and resizing as torch ops on the image's own device.
 
 ## Usage
 
@@ -30,16 +30,16 @@ resize. Denoise runs before the sharpeners so they do not amplify the noise it r
 
 ## Installation
 
-Search for **ComfyUI-Filter-Pack** in ComfyUI Manager, or:
+Search for **ComfyUI-Enhance-Pack** in ComfyUI Manager, or:
 
 ```bash
 cd ComfyUI/custom_nodes
-git clone https://github.com/alchemine/comfyui-filter-pack
+git clone https://github.com/alchemine/comfyui-enhance-pack
 ```
 
 ## Nodes
 
-`FilterPack/Image`
+`EnhancePack/Image`
 
 | Node | Description |
 |------|-------------|
