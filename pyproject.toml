@@ -4,7 +4,7 @@ description = """Image enhance pack.
 - Adjust Image(color correction, sharpen, denoise, resize), Despeckle Image
 - [a/Workflow](https://github.com/alchemine/comfyui-enhance-pack/blob/main/workflows/comfyui-enhance-pack-workflow.png)"""
 
-version = "1.0.0"
+version = "1.1.0"
 license = { file = "LICENSE" }
 requires-python = ">=3.12"
 
