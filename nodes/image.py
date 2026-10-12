@@ -338,23 +338,23 @@ def _erode(x: torch.Tensor, size: int) -> torch.Tensor:
 
 
 def _blob_sizes(mask: torch.Tensor, iters: int = 12) -> torch.Tensor:
-    """Size of the 8-connected blob each set pixel belongs to. mask: (1, 1, H, W)
+    """Size of the 8-connected blob each set pixel belongs to. mask: (B, 1, H, W)
     of 0/1. Labels are the smallest flat index in the blob, spread by min
     pooling plus pointer jumping, so a blob a few hundred pixels long settles
     in a dozen rounds."""
-    _, _, h, w = mask.shape
-    n = h * w
+    b, _, h, w = mask.shape
+    n = b * h * w
     on = mask > 0
-    idx = torch.arange(n, device=mask.device).view(1, 1, h, w)
+    idx = torch.arange(n, device=mask.device).view(b, 1, h, w)
     sentinel = torch.full_like(idx, n)
     lab = torch.where(on, idx, sentinel)
     for _ in range(iters):
-        lab = torch.where(on, -F.max_pool2d(-lab.float(), 3, 1, 1).long(), sentinel)
+        lab = torch.where(on, -F.max_pool2d(-lab.double(), 3, 1, 1).long(), sentinel)
         flat = torch.cat([lab.flatten(), sentinel.flatten()[:1]])
-        lab = flat[flat[lab.flatten()]].view(1, 1, h, w)
+        lab = flat[flat[lab.flatten()]].view(b, 1, h, w)
     sizes = torch.bincount(lab.flatten(), minlength=n + 1).to(mask.dtype)
     sizes[n] = 0
-    return sizes[lab.flatten()].view(1, 1, h, w)
+    return sizes[lab.flatten()].view(b, 1, h, w)
 
 
 def _ring_max(x: torch.Tensor, outer: int, inner: int) -> torch.Tensor:
