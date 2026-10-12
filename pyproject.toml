@@ -1,6 +1,6 @@
 [project]
 name = "comfyui-enhance-pack"
-description = """Image enhance nodes: colour correction, sharpen, denoise and resize in one Adjust Image node"""
+description = """Image enhance nodes: Adjust Image (colour correction, sharpen, denoise, resize) and Despeckle Image (remove stray bright dots)"""
 
 version = "1.0.0"
 license = { file = "LICENSE" }

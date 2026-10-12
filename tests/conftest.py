@@ -9,6 +9,7 @@ import importlib.util
 from pathlib import Path
 
 import pytest
+import torch
 import torch.nn.functional as F
 
 PACK_DIR = Path(__file__).resolve().parent.parent
@@ -29,10 +30,14 @@ def common_upscale(samples, width, height, upscale_method, crop):
 def comfy_stubs():
     utils = types.ModuleType("comfy.utils")
     utils.common_upscale = common_upscale
+    model_management = types.ModuleType("comfy.model_management")
+    model_management.get_torch_device = lambda: torch.device("cpu")
     comfy = types.ModuleType("comfy")
     comfy.utils = utils
+    comfy.model_management = model_management
     sys.modules["comfy"] = comfy
     sys.modules["comfy.utils"] = utils
+    sys.modules["comfy.model_management"] = model_management
 
 
 @pytest.fixture(scope="session")
