@@ -485,13 +485,16 @@ def _fill(
     mask = mask * (1.0 - dark)
 
     # Normalized convolution from the pixels around the speck continues a
-    # smooth gradient through it instead of replacing it with a block.
+    # smooth gradient through it instead of replacing it with a block. The
+    # weight rides along as a fourth channel: a single-channel conv2d is not
+    # depthwise on CUDA and its im2col buffer runs out of memory at this
+    # kernel size.
     radius = grow + speck_size // 2 + 1
     kernel = _gaussian_kernel(radius, radius * 0.6)
     keep = 1.0 - mask
-    filled = _conv2d_per_channel((x * keep).movedim(1, -1), kernel).movedim(-1, 1)
-    weight = _conv2d_per_channel(keep.movedim(1, -1), kernel).movedim(-1, 1)
-    filled = filled / weight.clamp_min(1e-3)
+    kept = torch.cat([x * keep, keep], dim=1).movedim(1, -1)
+    kept = _conv2d_per_channel(kept, kernel).movedim(-1, 1)
+    filled = kept[:, :-1] / kept[:, -1:].clamp_min(1e-3)
     mask = _conv2d_per_channel(mask.movedim(1, -1), _gaussian_kernel(2, 1.0)).movedim(
         -1, 1
     )
